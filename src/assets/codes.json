@@ -1,0 +1,617 @@
+[
+  {
+    "keyword": "REFZDZ",
+    "text": "Recent freezing drizzle",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "REFZRA",
+    "text": "Recent freezing rain",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "REDZ",
+    "text": "Recent drizzle (moderate or heavy)",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "RERA",
+    "text": "Recent rain (moderate or heavy)",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "RESN",
+    "text": "Recent snow (moderate or heavy)",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "RERASN",
+    "text": "Recent rain and snow (moderate or heavy)",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "RESG",
+    "text": "Recent snow grains (moderate or heavy)",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "REPL",
+    "text": "Recent ice pellets (moderate or heavy)",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "RESHRA",
+    "text": "Recent rain showers (moderate or heavy)",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "RESHSN",
+    "text": "Recent snow showers (moderate or heavy)",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "RESHGR",
+    "text": "Recent showers of hail (moderate or heavy)",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "RESHGS",
+    "text": "Recent showers of small hail and/or snow pellets",
+    "category": "Precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "REBLSN",
+    "text": "Recent blowing snow",
+    "category": "Wind-related phenomena",
+    "color": "orange"
+  },
+  {
+    "keyword": "RESS",
+    "text": "Recent sandstorm",
+    "category": "Wind-related phenomena",
+    "color": "orange"
+  },
+  {
+    "keyword": "REDS",
+    "text": "Recent duststorm",
+    "category": "Wind-related phenomena",
+    "color": "orange"
+  },
+  {
+    "keyword": "RETSTRA",
+    "text": "Recent thunderstorm with rain",
+    "category": "Thunderstorms",
+    "color": "purple"
+  },
+  {
+    "keyword": "RETSSN",
+    "text": "Recent thunderstorm with snow",
+    "category": "Thunderstorms",
+    "color": "purple"
+  },
+  {
+    "keyword": "RETSGR",
+    "text": "Recent thunderstorm with hail",
+    "category": "Thunderstorms",
+    "color": "purple"
+  },
+  {
+    "keyword": "RETSGS",
+    "text": "Recent thunderstorm with small hail",
+    "category": "Thunderstorms",
+    "color": "purple"
+  },
+  {
+    "keyword": "RETS",
+    "text": "Recent thunderstorm without precipitation",
+    "category": "Thunderstorms",
+    "color": "purple"
+  },
+  {
+    "keyword": "RECF",
+    "text": "Recent funnel cloud (tornado or waterspout)",
+    "category": "Extreme weather events",
+    "color": "purple"
+  },
+  {
+    "keyword": "REVA",
+    "text": "Recent volcanic ash",
+    "category": "Volcanic activity",
+    "color": "purple"
+  },
+  {
+    "keyword": "REUP",
+    "text": "Recent unidentified precipitation (only when automatic observing systems are used)",
+    "category": "Unidentified precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "REFZUP",
+    "text": "Recent freezing rain with unidentified precipitation (only when automatic observing systems are used)",
+    "category": "Unidentified precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "RETUP",
+    "text": "Recent thunderstorm with unidentified precipitation (only when automatic observing systems are used)",
+    "category": "Unidentified precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "RESHUP",
+    "text": "Recent showers of unidentified precipitation (only when automatic observing systems are used)",
+    "category": "Unidentified precipitation",
+    "color": "purple"
+  },
+  {
+    "keyword": "SHRA",
+    "text": "showers of rain",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "SHSN",
+    "text": "shower snow",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "SHGR",
+    "text": "shower hail",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "SHGS",
+    "text": "SHSN Shower Small hail/snow pellets",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "TSRA",
+    "text": "thunderstorm with rain showers",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "TSSN",
+    "text": "thunderstrom with show",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "TSGR",
+    "text": "thunderstorm with Hail",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "TSGS",
+    "text": "thunderstorm with Small hail/snow pellets",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "FZDZ",
+    "text": "freezing drizzle",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "FZRA",
+    "text": "freezing rain",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "FZFG",
+    "text": "freezing fog",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "DRSN",
+    "text": "low drifting snow",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "DRSA",
+    "text": "low drifting sand",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "DRDU",
+    "text": "low drifting widespread dust",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "BLSN",
+    "text": "blowing snow",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "BLSA",
+    "text": "blowing sand",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "BLDU",
+    "text": "blowing widespread dust",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "BLVA",
+    "text": "blowing volcanic ash",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "VC",
+    "text": "in the vicinity",
+    "category": "",
+    "color": ""
+  },
+  {
+    "keyword": "MIFG",
+    "text": "shallow fog",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "BCFG",
+    "text": "fog patches",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "PRFG",
+    "text": "partial fog",
+    "category": "Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "VRB",
+    "text": "variable",
+    "category": "",
+    "color": ""
+  },
+  {
+    "keyword": "SN",
+    "text": "snow",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "DZ",
+    "text": "drizzle",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "RA",
+    "text": "rain",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "PL",
+    "text": "ice pellets",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "GS",
+    "text": "Small hail/snow pellets",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "SG",
+    "text": "snow grains",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "IC",
+    "text": "ice crystals(diamond dust)",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "GR",
+    "text": "hail",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "FG",
+    "text": "fog (resulting visibility less than 1 km)",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "BR",
+    "text": "mist (when there is such obscurity and the associated visibility is equal to or exceeds 1000 m.)",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "SA",
+    "text": "sand",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "DU",
+    "text": "widespread dust",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "HZ",
+    "text": "haze",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "FU",
+    "text": "fume/smoke",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "VA",
+    "text": "volcanic ash",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "TS",
+    "text": "thunderstorm",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "PO",
+    "text": "dust/sand whirls",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "SQ",
+    "text": "squalls",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "FC",
+    "text": "funnel cloud(s)",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "00000MPS",
+    "text": "wind calm",
+    "category": "",
+    "color": ""
+  },
+  {
+    "keyword": "SHUP",
+    "text": "unknown precipitation",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "TSUP",
+    "text": "unknown precipitation",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "FZUP",
+    "text": "unknown precipitation",
+    "category": "Present Weather",
+    "color": "purple"
+  },
+  {
+    "keyword": "CAVOK",
+    "text": "CAVOK - ceiling and visibility OK",
+    "category": "Visibility",
+    "color": "green"
+  },
+  {
+    "keyword": "FEW",
+    "text": "few",
+    "category": "cloud amount",
+    "color": "violet"
+  },
+  {
+    "keyword": "SCT",
+    "text": "scattered",
+    "category": "cloud amount  ",
+    "color": "violet"
+  },
+  {
+    "keyword": "BKN",
+    "text": "broken",
+    "category": "cloud amount",
+    "color": "violet"
+  },
+  {
+    "keyword": "OVC",
+    "text": "overcast",
+    "category": "cloud amount",
+    "color": "violet"
+  },
+  {
+    "keyword": "NSC",
+    "text": "no significant cloud",
+    "category": "Clouds / Visibility",
+    "color": "violet"
+  },
+  {
+    "keyword": "NCD",
+    "text": "no clouds",
+    "category": "Clouds / Visibility",
+    "color": "violet"
+  },
+  {
+    "keyword": "CLR",
+    "text": "no clouds detected below 12000 feet",
+    "category": "Clouds / Visibility",
+    "color": "violet"
+  },
+  {
+    "keyword": "SKC",
+    "text": "sky is clear",
+    "category": "Clouds / Visibility",
+    "color": "violet"
+  },
+  {
+    "keyword": "CB",
+    "text": "cumulonimbus clouds",
+    "category": "Cloud amount and height",
+    "color": "violet"
+  },
+  {
+    "keyword": "TCU",
+    "text": "towering cumulus clouds",
+    "category": "Cloud amount and height",
+    "color": "violet"
+  },
+  {
+    "keyword": "VV",
+    "text": "vertical visibility",
+    "category": "",
+    "color": ""
+  },
+  {
+    "keyword": "NOSIG",
+    "text": "no significant change",
+    "category": "TREND",
+    "color": "brown"
+  },
+  {
+    "keyword": "BECMG",
+    "text": "becoming",
+    "category": "TREND",
+    "color": "brown"
+  },
+  {
+    "keyword": "TEMPO",
+    "text": "temporary",
+    "category": "TREND"
+  },
+
+  {
+    "keyword": "NSW",
+    "text": "no significant weather",
+    "category": "TREND",
+    "color": "brown"
+  },
+  {
+    "keyword": "FM",
+    "text": "from",
+    "category": "TREND",
+    "color": "brown"
+  },
+  {
+    "keyword": "TL",
+    "text": "till",
+    "category": "TREND",
+    "color": "brown"
+  },
+  {
+    "keyword": "AT",
+    "text": "at",
+    "category": "TREND",
+    "color": "brown"
+  },
+  {
+    "keyword": "RMK",
+    "text": "remark",
+    "category": "remarks",
+    "color": "yellow"
+  },
+  {
+    "keyword": "MT OBSC",
+    "text": "mountains obscured",
+    "category": "",
+    "color": "green"
+  },
+  {
+    "keyword": "MAST OBSC",
+    "text": "masts obscured",
+    "category": "",
+    "color": "green"
+  },
+  {
+    "keyword": "OBST OBSC",
+    "text": "obstacles obscured",
+    "category": "",
+    "color": "green"
+  },
+  {
+    "keyword": "TWR VIS",
+    "text": " visibility reported by tower personnel",
+    "color": ""
+  },
+  {
+    "keyword": "SFC VIS",
+    "text": "visibility reported by METAR",
+    "category": "",
+    "color": ""
+  },
+  {
+    "keyword": "WSHFT",
+    "text": "WIND SHIFT",
+    "category": "",
+    "color": ""
+  },
+  {
+    "keyword": "PK WND",
+    "text": "PEAK WIND",
+    "category": "",
+    "color": ""
+  },
+  {
+    "keyword": "TORNADO",
+    "text": "TORNADO",
+    "category": "",
+    "color": ""
+  },
+  {
+    "keyword": "FUNNEL CLOUD",
+    "text": "FUNNEL CLOUD",
+    "category": "",
+    "color": ""
+  },
+  {
+    "keyword": "WATERSPOUT",
+    "text": "WATERSPOUT",
+    "category": "",
+    "color": ""
+  },
+  {
+    "keyword": "AUTO",
+    "text": "Fully automated report, no human intervention; removed when observer signed-on."
+  }
+]

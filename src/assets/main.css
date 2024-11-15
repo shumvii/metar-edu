@@ -1,0 +1,211 @@
+@import './base.css';
+
+small {
+  line-height: 1.4;
+  display: inline-block;
+}
+h1,
+h2 {
+  font-weight: 400;
+}
+/* h2{
+  font-size: 
+} */
+.item {
+  margin-right: 1rem;
+  flex-basis: 19%;
+}
+.disabled {
+  color: slategrey;
+}
+.item-desc {
+  /* display: inline-flex; */
+  border: 1px solid black;
+  padding: 0.5rem;
+  /* height: 20px; */
+  overflow: hidden;
+}
+small {
+  margin: 0 3px;
+}
+.mtr-raw {
+  position: relative;
+  background-color: azure;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.mtr-label {
+}
+.mtr-field {
+  border: 2px solid;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  max-width: 400px;
+}
+h2 {
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+.mtr-suggestions {
+  display: flex;
+  margin-top: 0.5rem;
+}
+.mtr-suggestions-item {
+  margin-right: 0.5rem;
+  background-color: cadetblue;
+  color: #fff;
+  font-weight: 500;
+  padding: 0.25rem;
+  line-height: 1;
+  border-radius: 0.5rem;
+}
+.code {
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .code {
+    position: relative;
+  }
+  .code-tooltip {
+    width: 300px;
+  }
+}
+.code-key {
+  border-bottom: 2px dashed;
+  background: azure;
+}
+
+.code-tooltip {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  right: 0;
+
+  background-color: #fff;
+  border: 2px solid cadetblue;
+  padding: 0;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
+.code-category {
+  display: block;
+  background-color: cadetblue;
+  color: #fff;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 0.125rem 0.25rem 0.25rem;
+}
+
+.code:hover .code-tooltip {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+.code-text {
+  font-size: 0.9rem;
+  display: block;
+  padding: 0 0.25rem;
+}
+.code-text small {
+  font-size: 0.9rem;
+}
+/* .code-key::before{} */
+
+/* // icao #E31E25 red
+    // date #FFCD02 yellow
+    // wind #EF7F1A orange
+    // visib #009847 green
+    // weather #AE4B84  purple
+    // clouds #393285 violet
+    // davlen #B0CA1F salad
+    // trend #72635F brown
+    // rmk #FFCD02 yellow
+    // obsc #009847 green */
+/* ICAO */
+/* .code-color-red .code-tooltip {
+  border-color: #e31e25;
+  z-index: 9;
+}
+.code-color-red .code-category {
+  background-color: #e31e25;
+} */
+
+/* Date */
+/* .code-color-yellow .code-tooltip {
+  border-color: #ffcd02;
+}
+.code-color-yellow .code-category {
+  background-color: #ffcd02;
+} */
+
+/* Wind */
+/* .code-color-orange .code-tooltip {
+  border-color: #ef7f1a;
+}
+.code-color-orange .code-category {
+  background-color: #ef7f1a;
+} */
+
+/* Visibility */
+/* .code-color-green .code-tooltip {
+  border-color: #009847;
+}
+.code-color-green .code-category {
+  background-color: #009847;
+} */
+
+/* Weather */
+/* .code-color-purple .code-tooltip {
+  border-color: #ae4b84;
+}
+.code-color-purple .code-category {
+  background-color: #ae4b84;
+} */
+
+/* Clouds */
+/* .code-color-violet .code-tooltip {
+  border-color: #393285;
+}
+.code-color-violet .code-category {
+  background-color: #393285;
+} */
+
+/* Pressure */
+/* .code-color-salad .code-tooltip {
+  border-color: #b0ca1f;
+}
+.code-color-salad .code-category {
+  background-color: #b0ca1f;
+} */
+
+/* Trend */
+/* .code-color-brown .code-tooltip {
+  border-color: #72635f;
+}
+.code-color-brown .code-category {
+  background-color: #72635f;
+} */
+
+/* Remark */
+/* .code-color-yellow .code-tooltip {
+  border-color: #ffcd02;
+}
+.code-color-yellow .code-category {
+  background-color: #ffcd02;
+} */
+
+/* Obscuration */
+/* .code-color-green .code-tooltip {
+  border-color: #009847;
+}
+.code-color-green .code-category {
+  background-color: #009847;
+} */

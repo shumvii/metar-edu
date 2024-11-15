@@ -1,0 +1,84 @@
+{
+  "icao": "UUWW",
+  "barometer": {
+      "hg": 28.94,
+      "hpa": 980,
+      "kpa": 98,
+      "mb": 980.02
+  },
+  "ceiling": {
+      "feet": 1000,
+      "meters": 305
+  },
+  "clouds": [
+      {
+          "base_feet_agl": 1000,
+          "base_meters_agl": 305,
+          "code": "BKN",
+          "text": "Broken",
+          "feet": 1000,
+          "meters": 305
+      },
+      {
+          "base_feet_agl": 2600,
+          "base_meters_agl": 792,
+          "code": "BKN",
+          "text": "Broken",
+          "feet": 2600,
+          "meters": 792
+      }
+  ],
+  "conditions": [
+      {
+          "code": "SHRA",
+          "text": "Light Showers, Rain"
+      }
+  ],
+  "dewpoint": {
+      "celsius": 9,
+      "fahrenheit": 48
+  },
+  "elevation": {
+      "feet": 640,
+      "meters": 195
+  },
+  "flight_category": "IFR",
+  "humidity": {
+      "percent": 94
+  },
+  "observed": "2024-11-01T17:12:00",
+  "station": {
+      "geometry": {
+          "coordinates": [
+              37.261501,
+              55.591499
+          ],
+          "type": "Point"
+      },
+      "location": "Vnukovo, Moscow, Russia",
+      "name": "Vnukovo International Airport",
+      "type": "Airport"
+  },
+  "temperature": {
+      "celsius": 10,
+      "fahrenheit": 50
+  },
+  "raw_text": "UUWW 011712Z 25012G17MPS 3900 -SHRA BKN010 BKN026CB 10/09 Q0980 R24/290050 TEMPO 24016MPS 1500 -TSRA BKN012CB",
+  "visibility": {
+      "miles": "2.42",
+      "miles_float": 2.42,
+      "meters": "3,900",
+      "meters_float": 3900
+  },
+  "wind": {
+      "degrees": 250,
+      "speed_kph": 43,
+      "speed_kts": 23,
+      "speed_mph": 26,
+      "speed_mps": 12,
+      "gust_kph": 61,
+      "gust_kts": 33,
+      "gust_mph": 38,
+      "gust_mps": 17
+  }
+}
