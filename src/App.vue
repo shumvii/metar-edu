@@ -3,8 +3,11 @@ import MainBlock from './components/MainBlock.vue'
 </script>
 
 <template>
-  <div style="padding: 1rem">
-    <header><h1>METAR.edu</h1></header>
+  <div>
+    <header>
+      <h1>METAR Decoded</h1>
+      <div>Weather for Aviation and More</div>
+    </header>
 
     <main>
       <MainBlock />

@@ -20,13 +20,12 @@ const airportValue = ref('UUWW')
 function handleInputChange(event) {
   const value = event.target.value
   if (value.length === 4) {
-    // Вызываем нужную функцию, когда введено 4 символа
     handleSubmit(value)
   }
 }
-// function handleSubmit() {
-//   console.log('Значение ввода:', airportValue.value)
-// }
+
+handleSubmit('UUWW')
+
 async function handleSubmit(stationLocator) {
   try {
     // Выполняем GET-запрос к API
@@ -35,10 +34,9 @@ async function handleSubmit(stationLocator) {
     )
 
     // Получаем данные из ответа
-    const metarData = response.data
-
+    // const metarData = response.data
     // Логируем полученные данные
-    console.log('Получены данные METAR:', metarData)
+    // console.log('Получены данные METAR:', metarData)
 
     if (response.status === 200 && response.data) {
       state.isLoaded = true
@@ -201,10 +199,10 @@ watchEffect(() => {
 
     if (matchesRSG) {
       matchesRSG.forEach(item => {
-        if (item[0]) {
+        if (item[0] != null) {
           let rwyDesignator = ''
           let rwyDesignatorText = ''
-          if (item[1]) {
+          if (item[1] != null) {
             rwyDesignator = item[1]
             switch (rwyDesignator) {
               case 99:
@@ -216,7 +214,7 @@ watchEffect(() => {
                 break
               default:
                 rwyDesignatorText += 'Runway ' + rwyDesignator
-                if (item[2]) {
+                if (item[2] != null) {
                   const sideMap = {
                     L: 'L (left)',
                     R: 'R (right)',
@@ -232,7 +230,7 @@ watchEffect(() => {
             clrdText += ' cleared;'
           }
           let rwyDepositsText = ''
-          if (item[4]) {
+          if (item[4] != null) {
             rwyDepositsText += '<br/>Runway deposits: '
             const runwayDepositsMap = {
               0: 'Clear and dry',
@@ -257,7 +255,7 @@ watchEffect(() => {
 
           let extentOfContaminationText = ''
 
-          if (item[5]) {
+          if (item[5] != null) {
             extentOfContaminationText += '<br/>Extent of runway contamination: '
             const extentOfContaminationMap = {
               1: '10% or less',
@@ -277,7 +275,7 @@ watchEffect(() => {
           }
 
           let depthOfDepositText = ''
-          if (item[6]) {
+          if (item[6] != null) {
             depthOfDepositText += '<br/>Depth of Deposit: '
             const depthOfDepositMap = {
               92: '10cm',
@@ -288,7 +286,7 @@ watchEffect(() => {
               97: '35cm',
               98: '40cm or more',
             }
-            let param = Number(item[6])
+            let param = parseInt(item[6], 10)
             if (param >= 1 && param <= 90) {
               depthOfDepositText += '' + param + 'mm (' + param + ')'
             } else if (param == '00') {
@@ -307,7 +305,7 @@ watchEffect(() => {
           }
           let frictionCoefficientText = ''
 
-          if (item[7]) {
+          if (item[7] != null) {
             frictionCoefficientText += '<br/>Braking Action: '
             const frictionCoefficient = item[7]
             if (frictionCoefficient == '//') {
@@ -341,7 +339,7 @@ watchEffect(() => {
             }
           }
 
-          if (item)
+          if (item != null)
             addNewString(
               replacements,
               item[0],
@@ -358,7 +356,163 @@ watchEffect(() => {
       })
     }
 
-    /** wind */
+    const patternVerticalVisibility = /VV(\d{3}|\/\/\/)/g
+    let matchesVV = []
+    let matchVV
+    while ((matchVV = patternVerticalVisibility.exec(raw)) !== null) {
+      matchesVV.push(matchVV)
+    }
+    if (matchesVV) {
+      matchesVV.forEach(item => {
+        let VVText = ''
+        if (item[1] == '///') {
+          VVText += 'The vertical visibility has not been measured'
+        } else {
+          VVText +=
+            'Vertical visibility of ' + parseInt(item[1], 10) * 100 + 'ft'
+        }
+        addNewString(replacements, item[0], VVText, 'VerticalVisibility', 'red')
+      })
+    }
+
+    /*Atmospheric pressure */
+
+    const patternAtmosphericPressure = /Q(\d{4})/g
+    let matchesAP = []
+    let matchAP
+    while ((matchAP = patternAtmosphericPressure.exec(raw)) !== null) {
+      matchesAP.push(matchAP)
+    }
+    if (matchesAP) {
+      matchesAP.forEach(item => {
+        let APText =
+          'The sea level pressure or QNH at the aerodrome is ' +
+          item[1] +
+          ' hectopascal'
+
+        addNewString(
+          replacements,
+          item[0],
+          APText,
+          'Atmospheric Pressure',
+          'red',
+        )
+      })
+    }
+
+    /**Air temperature and dew point */
+    const patternTempAndDewPoint = /\b((M)?(\d{2}))\/((M)?(\d{2}))\b/g
+    let matchesTDP = []
+    let matchTDP
+    while ((matchTDP = patternTempAndDewPoint.exec(raw)) !== null) {
+      matchesTDP.push(matchTDP)
+    }
+    if (matchesTDP) {
+      matchesTDP.forEach(item => {
+        let tempText = ''
+        let dewPointText = ''
+
+        if (item[3] !== null) {
+          tempText += (item[2] == 'M' ? '-' : '') + parseInt(item[3], 10)
+        }
+        if (item[6] !== null) {
+          dewPointText += (item[5] == 'M' ? '-' : '') + parseInt(item[6], 10)
+        }
+        console.log(item)
+        addNewString(
+          replacements,
+          item[0],
+          'Air temperature is ' +
+            tempText +
+            '°C, dew point temperature is ' +
+            dewPointText +
+            '°C',
+          'Air temperature and dew point',
+          'red',
+        )
+      })
+    }
+
+    // QNH
+
+    /**Clouds */
+
+    const patternClouds =
+      /(FEW|SCT|BKN|OVC|\/\/\/)(\d{3}|\/\/\/)(CB|TCU|\/\/\/)?/g
+
+    // let input1 =
+    //   ' BKN013 ///015 SCT/// BKN///CB OVC/// ///015 ////// //////CB BKN025///'
+    let matchesClouds = []
+    let matchClouds
+    while ((matchClouds = patternClouds.exec(raw)) !== null) {
+      matchesClouds.push(matchClouds)
+    }
+    if (matchesClouds) {
+      matchesClouds.forEach(item => {
+        let cloudsText = ''
+        let cloudAmount = ''
+        let cloudsHeight = ''
+        let cloudType = ''
+
+        cloudAmount += ''
+        if (item[1] !== null) {
+          switch (item[1]) {
+            case 'FEW':
+              cloudAmount +=
+                'Few clouds layer (1/8th to 2/8th of sky coverage (1-2 octas))'
+              break
+            case 'SCT':
+              cloudAmount +=
+                'Scattered clouds layer (3/8th to 4/8th of sky coverage (3-4 octas))'
+              break
+            case 'BKN':
+              cloudAmount +=
+                'Broken clouds layer (5/8th to 7/8th of sky coverage (5-6-7 octas))'
+              break
+            case 'OVC':
+              cloudAmount +=
+                'Overcast clouds layer (8/8th of sky coverage (8 octas))'
+              break
+            case '///':
+              cloudAmount +=
+                'The cloud amount cannot be identified by the automatic observing system; '
+              break
+          }
+        }
+        //todo ??
+        if (item[2] != null) {
+          cloudsHeight = ' at ' + parseInt(item[2], 10) * 100 + 'ft'
+        } else {
+          cloudsHeight = ' the layer is below station level'
+        }
+        if (item[3] != null) {
+          cloudType += ''
+
+          switch (item[3]) {
+            case 'TCU':
+              cloudType += ' with presence of towering cumulus (TCU)'
+              break
+            case 'CB':
+              cloudType += ' with presence of cumulonimbus (CB)'
+              break
+            case '///':
+              cloudType +=
+                'The cloud type cannot be identified by the automatic observing system; '
+          }
+        }
+        // console.log(item)
+        // console.log(cloudsText + cloudAmount + cloudsHeight + cloudType)
+        addNewString(
+          replacements,
+          item[0],
+          cloudsText + cloudAmount + cloudsHeight + cloudType,
+          'Clouds',
+          'red',
+        )
+      })
+    }
+
+    /** Wind */
     const patternWithGustings =
       /\b(\d{3}|(VRB))((?:P|ABV)?)(\d{2})(?:G(\d{2}))?(MPS|KPH|KT)\b(\s(\d{3})V(\d{3}))?/g
 
@@ -396,66 +550,64 @@ watchEffect(() => {
           return units
         }
         function getWindSpeed(speed, units) {
-          return +Number(speed) + getWindUnits(units) + '; '
+          return +parseInt(speed, 10) + getWindUnits(units) + '; '
         }
 
-        if (item) {
-          if (item[1] == 'VRB') {
-            speedText += 'variable direction; wind speed '
-            speedText += getWindSpeed(item[4], item[6])
-            speedText +=
-              '<p><b>VRB is used:</b></p><ul><li>If the wind direction changes in the range from 60&deg; to 180&deg;, and the wind speed is less than 1.5 m/s (3 kt)</li><li>If the wind direction changes by 180 degrees or more, such as during a thunderstorm passing over an airfield</li></ul>'
-          } else if (item[3] == 'P' || item[3] == 'ABV') {
-            if (item[1]) {
-              directionText +=
-                'surface wind direction ' + Number(item[1]) + '°; '
-            }
-            speedText += 'wind speed of 50 m/s (100KT) or more'
-          } else {
-            if (item[1]) {
-              directionText +=
-                'surface wind direction ' + Number(item[1]) + '°; '
-            }
-            speedText += ' wind speed '
-            speedText += getWindSpeed(item[4], item[6])
+        if (item[1] == 'VRB') {
+          speedText += 'variable direction; wind speed '
+          speedText += getWindSpeed(item[4], item[6])
+          speedText +=
+            '<p><b>VRB is used:</b></p><ul><li>If the wind direction changes in the range from 60&deg; to 180&deg;, and the wind speed is less than 1.5 m/s (3 kt)</li><li>If the wind direction changes by 180 degrees or more, such as during a thunderstorm passing over an airfield</li></ul>'
+        } else if (item[3] == 'P' || item[3] == 'ABV') {
+          if (item[1] != null) {
+            directionText +=
+              'surface wind direction ' + parseInt(item[1], 10) + '°; '
+          }
+          speedText += 'wind speed of 50 m/s (100KT) or more'
+        } else {
+          if (item[1] != null) {
+            directionText +=
+              'surface wind direction ' + parseInt(item[1], 10) + '°; '
+          }
+          speedText += ' wind speed '
+          speedText += getWindSpeed(item[4], item[6])
 
-            if (item[5]) {
-              gustText +=
-                ' gusting to a maximum of ' +
-                Number(item[5]) +
-                getWindUnits(item[6]) +
-                '; '
-            }
-
-            if (item[1] && item[8] && item[9]) {
-              windDirectionVariableText +=
-                ' wind direction is variable around ' +
-                Number(item[1]) +
-                '° between ' +
-                Number(item[8]) +
-                '° and ' +
-                Number(item[9]) +
-                '°.'
-            }
-            if (item[7] == null || typeof item[7] === 'undefined') {
-            } else {
-              noteText +=
-                '<br/><br/>If, during the ten minutes preceding the observation, the wind direction changes within the range from 60° to 180°, and the wind speed is 1.5 m/s (3 kt) or more, then the report shall additionally include two extreme values ​​of direction within which the change in surface wind direction was observed, and shall be indicated in clockwise order.'
-            }
+          if (item[5] != null) {
+            gustText +=
+              ' gusting to a maximum of ' +
+              parseInt(item[5], 10) +
+              getWindUnits(item[6]) +
+              '; '
           }
 
-          addNewString(
-            replacements,
-            item[0],
-            directionText +
-              speedText +
-              gustText +
-              windDirectionVariableText +
-              noteText,
-            'Wind',
-            'red',
-          )
+          if (item[1] != null && item[8] != null && item[9] != null) {
+            windDirectionVariableText +=
+              ' wind direction is variable around ' +
+              parseInt(item[1], 10) +
+              '° between ' +
+              parseInt(item[8], 10) +
+              '° and ' +
+              parseInt(item[9], 10) +
+              '°.'
+          }
+          if (item[7] == null || typeof item[7] === 'undefined') {
+          } else {
+            noteText +=
+              '<br/><br/>If, during the ten minutes preceding the observation, the wind direction changes within the range from 60° to 180°, and the wind speed is 1.5 m/s (3 kt) or more, then the report shall additionally include two extreme values ​​of direction within which the change in surface wind direction was observed, and shall be indicated in clockwise order.'
+          }
         }
+
+        addNewString(
+          replacements,
+          item[0],
+          directionText +
+            speedText +
+            gustText +
+            windDirectionVariableText +
+            noteText,
+          'Wind',
+          'red',
+        )
       })
     }
 
@@ -464,33 +616,20 @@ watchEffect(() => {
     parsedString.value = modifiedText
   }
 })
-
-// axios
-//   .get('https://api.vatrus.info/v1/metar/' + airportValue.value + '/extended')
-//   .then(response => {
-//     if (response.status === 200 && response.data) {
-//       state.isLoaded = true
-//       state.icao = response.data.icao
-//       state.rawText = response.data.raw_text
-//       state.airport = response.data.airport
-//     }
-//   })
-//   .catch(error => {
-//     console.error('Error fetching data:', error)
-//   })
 </script>
 
 <template>
   <div>
     <!-- <input v-model="airportValue" type="text" /> -->
-    <label class="mtr-label">Enter airport ICAO index</label>
-    <div>
+    <div class="mtr-field">
+      <label class="mtr-label">Enter airport ICAO index</label>
+
       <input
         :value="state.icao"
         @input="handleInputChange"
         maxlength="4"
         type="text"
-        class="mtr-field"
+        class="mtr-input"
         placeholder=""
       />
     </div>
@@ -503,11 +642,9 @@ watchEffect(() => {
   </div> -->
 
   <div v-if="isLoaded">
-    <h2>
-      {{ state.airport }}
-    </h2>
+    <h2>Weather for {{ state.airport }}</h2>
 
     <div class="mtr-raw" v-html="parsedString"></div>
   </div>
-  <div v-else>Loading...</div>
+  <div v-else></div>
 </template>
